@@ -264,12 +264,14 @@ function NPCGenerator() {
   const handleGenerate = () => {
     setRandomNPC([
       "arcana: " + arcana[Math.floor(Math.random() * arcana.length)],
-      namesMale.map((e) => {
-        return e[Math.floor(Math.random() * e.length)] + " ";
-      }),
-      namesFemale.map((e) => {
-        return e[Math.floor(Math.random() * e.length)] + " ";
-      }),
+      "male names: " +
+        namesMale.map((e) => {
+          return " " + e[Math.floor(Math.random() * e.length)];
+        }),
+      "female names: " +
+        namesFemale.map((e) => {
+          return " " + e[Math.floor(Math.random() * e.length)];
+        }),
     ]);
   };
   return (
