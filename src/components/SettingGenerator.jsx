@@ -35,22 +35,22 @@ function SettingGenerator() {
   const style = ["noir", "horror", "action", "suspense", "drama"];
 
   const chaos = [
-    "slaanesh",
-    "nurgle",
-    "khorne",
-    "tzeentch",
-    "chaos undivided",
-    "malal",
+    "Slaanesh",
+    "Nurgle",
+    "Khorne",
+    "Tzeentch",
+    "Chaos undivided",
+    "Malal",
   ];
 
   const handleGenerate = () => {
     setRandomSet([
-      "location: " + world[Math.floor(Math.random() * world.length)],
-      "organisation: " +
+      "Location: " + world[Math.floor(Math.random() * world.length)],
+      "Organisation: " +
         organisation[Math.floor(Math.random() * organisation.length)],
-      "issue: " + issue[Math.floor(Math.random() * issue.length)],
-      "style: " + style[Math.floor(Math.random() * style.length)],
-      "chaos: " + chaos[Math.floor(Math.random() * chaos.length)],
+      "Issue: " + issue[Math.floor(Math.random() * issue.length)],
+      "Style: " + style[Math.floor(Math.random() * style.length)],
+      "Chaos: " + chaos[Math.floor(Math.random() * chaos.length)],
     ]);
   };
   return (

@@ -17,7 +17,7 @@ function NPCGenerator() {
     "Justice",
     "Hanged Man",
     "Death",
-    "Temprance",
+    "Temperance",
     "Devil",
     "Tower",
     "Star",
@@ -263,12 +263,12 @@ function NPCGenerator() {
   ];
   const handleGenerate = () => {
     setRandomNPC([
-      "arcana: " + arcana[Math.floor(Math.random() * arcana.length)],
-      "male names: " +
+      "Arcana: " + arcana[Math.floor(Math.random() * arcana.length)],
+      "Male names: " +
         namesMale.map((e) => {
           return " " + e[Math.floor(Math.random() * e.length)];
         }),
-      "female names: " +
+      "Female names: " +
         namesFemale.map((e) => {
           return " " + e[Math.floor(Math.random() * e.length)];
         }),
