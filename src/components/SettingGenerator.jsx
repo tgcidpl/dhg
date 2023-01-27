@@ -52,7 +52,6 @@ function SettingGenerator() {
       "style: " + style[Math.floor(Math.random() * style.length)],
       "chaos: " + chaos[Math.floor(Math.random() * chaos.length)],
     ]);
-    console.log(randomSet);
   };
   return (
     <div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function NPCGenerator() {
-  const [randomNPCs, setRandomNPCs] = useState(null);
+  const [randomNPC, setRandomNPC] = useState(null);
   const arcana = [
     "Fool",
     "Magician",
@@ -27,18 +27,257 @@ function NPCGenerator() {
     "World",
   ];
 
+  const malePrimitive = [
+    "arz",
+    "barik",
+    "carm",
+    "farn",
+    "garak",
+    "horst",
+    "imk",
+    "jart",
+    "kulem",
+    "larl",
+    "mok",
+    "narl",
+    "oort",
+    "pak",
+    "ragaa",
+    "salc",
+    "tarl",
+    "volc",
+    "yarl",
+    "zel",
+  ];
+  const maleLow = [
+    "aaz",
+    "canto",
+    "darrial",
+    "festus",
+    "gaius",
+    "harlon",
+    "irlven",
+    "jaspar",
+    "killian",
+    "lazarus",
+    "mordicai",
+    "nicodemus",
+    "quinten",
+    "rhaban",
+    "silvanto",
+    "titus",
+    "uriah",
+    "xerxes",
+    "zariel",
+  ];
+  const maleHigh = [
+    "azararch",
+    "baranoth",
+    "castess",
+    "davrus",
+    "erioch",
+    "galliach",
+    "harthos",
+    "icharus",
+    "karpath",
+    "lothos",
+    "marius",
+    "noctine",
+    "octavius",
+    "partheos",
+    "quellus",
+    "ramalies",
+    "severan",
+    "tyruss",
+    "ventium",
+    "zarath",
+  ];
+  const maleArchaic = [
+    "alaric",
+    "barbosa",
+    "caradoc",
+    "draco",
+    "eizen",
+    "ferris",
+    "grendal",
+    "harlocke",
+    "jenquin",
+    "karlos",
+    "lemant",
+    "magnus",
+    "naveen",
+    "oscarl",
+    "perrin",
+    "romulus",
+    "sabanth",
+    "urial",
+    "wolfe",
+    "zarkov",
+  ];
+  const maleInformal = [
+    "able",
+    "bones",
+    "cutter",
+    "dakka",
+    "dokk",
+    "ergs",
+    "fanz",
+    "flair",
+    "garrit",
+    "hons",
+    "ills",
+    "jaq",
+    "lax",
+    "meng",
+    "nast",
+    "reddin",
+    "scab",
+    "shiv",
+    "tranq",
+    "wurm",
+  ];
+  const femalePrimitive = [
+    `arda`,
+    `cil`,
+    `dara`,
+    `elphet`,
+    `frakka`,
+    `garma`,
+    `halli`,
+    `ing`,
+    `julla`,
+    `kelle`,
+    `merra`,
+    `nimm`,
+    `nulla`,
+    `paz`,
+    `russa`,
+    `sulle`,
+    `thima`,
+    `vas`,
+    `yanne`,
+    `zanna`,
+  ];
+  const femaleLow = [
+    `acadi`,
+    `balida`,
+    `cassa`,
+    `darial`,
+    `frennine`,
+    `galatia`,
+    `hannette`,
+    `jinzia`,
+    `karroleen`,
+    `liri`,
+    `magdala`,
+    `narcia`,
+    `pennette`,
+    `quineel`,
+    `rhia`,
+    `sesselie`,
+    `thesse`,
+    `uri`,
+    `xandra`,
+    `zadori`,
+  ];
+  const femaleHigh = [
+    `araleen`,
+    `castella`,
+    `elleantra`,
+    `fausta`,
+    `flavia`,
+    `heras`,
+    `irissa`,
+    `jucinda`,
+    `lucinda`,
+    `mycandra`,
+    `novianna`,
+    `nuella`,
+    `palanza`,
+    `praenta`,
+    `regia`,
+    `scythia`,
+    `temetria`,
+    `thallia`,
+    `venria`,
+    `yemmise`,
+  ];
+  const femaleArchaic = [
+    `aennisse`,
+    `bianca`,
+    `drusilla`,
+    `eos`,
+    `florenza`,
+    `genevieve`,
+    `hannette`,
+    `jocasta`,
+    `katarina`,
+    `lethe`,
+    `miranda`,
+    `pollonia`,
+    `rosalind`,
+    `severine`,
+    `tessera`,
+    `tzarelle`,
+    `urania`,
+    `verity`,
+    `wyniff`,
+    `yasta`,
+  ];
+  const femaleInformal = [
+    `alta`,
+    `blue`,
+    `echo`,
+    `fatal`,
+    `flame`,
+    `gamma`,
+    `grace`,
+    `jaine`,
+    `lho`,
+    `mini`,
+    `nerva`,
+    `newt`,
+    `pris`,
+    `red`,
+    `steel`,
+    `starr`,
+    `tanda`,
+    `trix`,
+    `xina`,
+    `zedda`,
+  ];
+
+  const namesMale = [
+    malePrimitive,
+    maleLow,
+    maleHigh,
+    maleArchaic,
+    maleInformal,
+  ];
+  const namesFemale = [
+    femalePrimitive,
+    femaleLow,
+    femaleHigh,
+    femaleArchaic,
+    femaleInformal,
+  ];
   const handleGenerate = () => {
-    setRandomNPCs([
+    setRandomNPC([
       "arcana: " + arcana[Math.floor(Math.random() * arcana.length)],
+      namesMale.map((e) => {
+        return e[Math.floor(Math.random() * e.length)] + " ";
+      }),
+      namesFemale.map((e) => {
+        return e[Math.floor(Math.random() * e.length)] + " ";
+      }),
     ]);
-    console.log(randomNPCs);
   };
   return (
     <div>
-      <button onClick={handleGenerate}>Generate NPCs</button>
-      {randomNPCs && (
+      <button onClick={handleGenerate}>Generate NPC</button>
+      {randomNPC && (
         <ul>
-          {randomNPCs.map((e, i) => {
+          {randomNPC.map((e, i) => {
             return <li key={i}>{e}</li>;
           })}
         </ul>
