@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 
 function NPCGenerator() {
-  const [randomNPC, setRandomNPC] = useState(null);
+  const [randomNPC, setRandomNPC] = useState({
+    arcana: "",
+    malePrimitive: "",
+    maleLow: "",
+    maleHigh: "",
+    maleArchaic: "",
+    maleInformal: "",
+    femalePrimitive: "",
+    femaleLow: "",
+    femaleHigh: "",
+    femaleArchaic: "",
+    femaleInformal: "",
+  });
   const arcana = [
     "Fool",
     "Magician",
@@ -246,44 +258,67 @@ function NPCGenerator() {
     `xina`,
     `zedda`,
   ];
-
-  const namesMale = [
-    malePrimitive,
-    maleLow,
-    maleHigh,
-    maleArchaic,
-    maleInformal,
-  ];
-  const namesFemale = [
-    femalePrimitive,
-    femaleLow,
-    femaleHigh,
-    femaleArchaic,
-    femaleInformal,
-  ];
-  const handleGenerate = () => {
-    setRandomNPC([
-      "Arcana: " + arcana[Math.floor(Math.random() * arcana.length)],
-      "Male names: " +
-        namesMale.map((e) => {
-          return " " + e[Math.floor(Math.random() * e.length)];
-        }),
-      "Female names: " +
-        namesFemale.map((e) => {
-          return " " + e[Math.floor(Math.random() * e.length)];
-        }),
-    ]);
+  // const categories = [
+  //   arcana,
+  //   malePrimitive,
+  //   maleLow,
+  //   maleHigh,
+  //   maleHigh,
+  //   maleArchaic,
+  //   maleInformal,
+  //   femalePrimitive,
+  //   femaleLow.femaleHigh,
+  //   femaleArchaic,
+  //   femaleInformal,
+  // ];
+  const handleGenerate = (e) => {
+    e.preventDefault;
+    setRandomNPC({
+      arcana: arcana[Math.floor(Math.random() * arcana.length)],
+      malePrimitive:
+        malePrimitive[Math.floor(Math.random() * malePrimitive.length)],
+      maleLow: maleLow[Math.floor(Math.random() * maleLow.length)],
+      maleHigh: maleHigh[Math.floor(Math.random() * maleHigh.length)],
+      maleArchaic: maleArchaic[Math.floor(Math.random() * maleArchaic.length)],
+      maleInformal:
+        maleInformal[Math.floor(Math.random() * maleInformal.length)],
+      femalePrimitive:
+        femalePrimitive[Math.floor(Math.random() * femalePrimitive.length)],
+      femaleLow: femaleLow[Math.floor(Math.random() * femaleLow.length)],
+      femaleHigh: femaleHigh[Math.floor(Math.random() * femaleHigh.length)],
+      femaleArchaic:
+        femaleArchaic[Math.floor(Math.random() * femaleArchaic.length)],
+      femaleInformal:
+        femaleInformal[Math.floor(Math.random() * femaleInformal.length)],
+    });
   };
+
   return (
     <div>
-      <button onClick={handleGenerate}>Generate NPC</button>
-      {randomNPC && (
-        <ul>
-          {randomNPC.map((e, i) => {
-            return <li key={i}>{e}</li>;
-          })}
-        </ul>
-      )}
+      <div>
+        <p>Arcana: {randomNPC.arcana}</p>
+        <div>
+          <ul>
+            Male:
+            <li>Primitive: {randomNPC.malePrimitive}</li>
+            <li>Low Gothic: {randomNPC.maleLow}</li>
+            <li>High Gothic: {randomNPC.maleHigh}</li>
+            <li>Archaic: {randomNPC.maleArchaic}</li>
+            <li>Informal: {randomNPC.maleInformal}</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            Female:
+            <li>Primitive: {randomNPC.femalePrimitive}</li>
+            <li>Low Gothic: {randomNPC.femaleLow}</li>
+            <li>High Gothic: {randomNPC.femaleHigh}</li>
+            <li>Archaic: {randomNPC.femaleArchaic}</li>
+            <li>Informal: {randomNPC.femaleInformal}</li>
+          </ul>
+        </div>
+      </div>
+      <button onClick={(e) => handleGenerate(e)}>Generate NPC</button>
     </div>
   );
 }

@@ -5,8 +5,8 @@ function App() {
   return (
     <>
       <h2>Dark Heresy Generator</h2>
-      <SettingGenerator />
       <NPCGenerator />
+      <SettingGenerator />
     </>
   );
 }
